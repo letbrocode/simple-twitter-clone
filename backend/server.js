@@ -24,8 +24,6 @@ app.use(express.json()); // to parse req.body
 app.use(express.urlencoded({ extended: true })); //to parse url form data
 app.use(cookieParser());
 
-console.log(process.env.MONGO_URI);
-
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);

@@ -90,7 +90,7 @@ export const getSuggestedUsers = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const { fullname, username, email, currentPassword, newPassword, bio, link } =
+  const { fullName, username, email, currentPassword, newPassword, bio, link } =
     req.body;
   let { profileImg, coverImg } = req.body;
 
@@ -141,8 +141,8 @@ export const updateUser = async (req, res) => {
       const uploadedResponse = await cloudinary.uploader.upload(coverImg);
       coverImg = uploadedResponse.secure_url;
     }
-    user.fullname = fullname || user.fullName;
     user.username = username || user.username;
+    user.fullName = fullName || user.fullName;
     user.email = email || user.email;
     user.bio = bio || user.bio;
     user.link = link || user.link;

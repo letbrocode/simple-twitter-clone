@@ -71,6 +71,9 @@ const ProfilePage = () => {
   useEffect(() => {
     refetch();
   }, [username, refetch]);
+  const userLink = user?.link?.startsWith("http")
+    ? user?.link
+    : `https://${user?.link}`;
 
   return (
     <>
@@ -186,12 +189,12 @@ const ProfilePage = () => {
                       <>
                         <FaLink className="w-3 h-3 text-slate-500" />
                         <a
-                          href="https://youtube.com/@asaprogrammer_"
+                          href={userLink}
                           target="_blank"
                           rel="noreferrer"
                           className="text-sm text-blue-500 hover:underline"
                         >
-                          youtube.com/@asaprogrammer_
+                          {user?.link}
                         </a>
                       </>
                     </div>
